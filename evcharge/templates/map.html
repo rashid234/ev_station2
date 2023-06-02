@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Map
+{%endblock%}
+
+{% block content%}  
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" id = "brand" href="login"><b>EV-charge</b></a>
+    <a class="dropdown-item" href="logout">Logout</a>
+  </nav>
+
+  <div id="map" style="width:100%; height:100vh;"></div>
+<a href='details'>details</a>
+  <script>
+    var map = L.map('map').setView([10.779, 76.3655], 15);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    L.control.locate().addTo(map);
+
+    coords = [[10.7861, 76.3743]];
+    price = ['50Rs']
+
+    let l = coords.length;
+    for (let i =0; i<l; i++){
+      var pop = L.popup({
+        closeOnclick: true
+
+      }).setContent('some text');
+      var marker = L.marker(coords[i]).addTo(map).bindPopup(pop);
+      var toollip = L.tooltip({
+        permanent: true
+      }).setContent(price[i]);
+
+      marker.bindTooltip(toollip);
+
+    }
+
+  </script>
+{% endblock %}

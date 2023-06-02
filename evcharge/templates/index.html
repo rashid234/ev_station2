@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Home
+{%endblock%}
+
+{% block content%}  
+
+<style>
+
+header.masthead {
+  padding-top: 10.5rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  color: #fff;
+  background-image: url("static/images/bgimg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+header.masthead .masthead-subheading {
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.5rem;
+  margin-bottom: 25px;
+  }
+
+header.masthead .masthead-heading {
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 3.25rem;
+  margin-bottom: 2rem;
+  
+}
+
+@media (min-width: 768px) {
+  header.masthead {
+    padding-top: 17rem;
+    padding-bottom: 12.5rem;
+  }
+  header.masthead .masthead-subheading {
+    font-size: 2.25rem;
+    font-style: italic;
+    line-height: 2.25rem;
+    margin-bottom: 2rem;
+  }
+  header.masthead .masthead-heading {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 4.5rem;
+    margin-bottom: 4rem;
+  }
+}
+</style>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" id = "brand" href="login"><b>EV-charge</b></a>
+      <div class="d-flex align-itrems-center">
+        <button type="button" class="btn">
+          Login
+        </button>
+        <button type="button" class="btn btn-primary">
+          Sign up for free
+        </button>
+      </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="container">
+      <div class="masthead-subheading">Welcome!</div>
+      <div class="masthead-heading text-uppercase">Find Charging stations Near You!</div>
+      <a class="btn btn-primary btn-xl text-uppercase" href="map">Find station</a>
+  </div>
+</header>
+<!-- Services-->
+<section class="page-section" id="services">
+  <div class="container">
+      <div class="text-center">
+          <h2 class="section-heading text-uppercase">Services</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+      <div class="row text-center">
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="my-3">E-Commerce</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          </div>
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="my-3">Responsive Design</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          </div>
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="my-3">Web Security</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<a href='details'>details</a>
+
+{% endblock %}
