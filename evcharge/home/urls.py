@@ -8,5 +8,8 @@ urlpatterns = [
     path('map', views.map, name="map"),
  
     path('login', views.login, name="login"),
-    path('logout', views.logout, name="logout"),
+    path('logout', views.logout, name="logsout"),
+    path('add', views.add, name="add"),
+    path('details/<str:name>', views.details, name="details"),
+    path('details/addreviews/<str:stationname>', views.addreviews, name="addreviews")
 ]
