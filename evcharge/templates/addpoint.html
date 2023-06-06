@@ -129,13 +129,14 @@ Add point
     <legend></span>Enter the details</legend>
     <label>Station name</label>
     <input type="text" id="name" name="name">
-
+    <div style="float:left;">
     <label>Latitude</label>
-    <input type="text" id="latitude" name="latitude">
-
-    <label>Longitude</label>
-    <input type="text" id="longitude" name="longitude">
-
+    <input type="text" id="latitude" name="latitude" style="width:12.8em;">
+    </div>
+    <div>
+    <label style="padding-left:14em;">Longitude</label>
+    <input type="text" id="longitude" name="longitude" style="width:12.5em; margin-left:1.2em;">
+    </div>
     <label>charging price</label>
     <input type="text" id="price" name="price">
 
@@ -143,7 +144,7 @@ Add point
     <input type="radio" value="Type 1" name="chargetype"><label class="light">Type 1</label>
     <input type="radio" value="Type 2" name="chargetype"><label class="light">Type 2</label>
 
-    <label>Address</label>
+    <label style="margin-top:1em;">Address</label>
     <input type="text" id="address" name="address">
   </fieldset>
   <button type="submit">ADD STATION</button>

@@ -64,8 +64,6 @@ def logout(request):
 def addpoint(request):
     if User.objects.filter(username='admin'):
         stationdetail =list(stationdetails.objects.all())
-        print('-----------------')
-        print(stationdetail[0])
         dataset=[]
         # dump data
     
@@ -109,8 +107,6 @@ def details(request, name):
     stationdetail =list(stationdetails.objects.filter(name=name).all())
     reviewset =list(reviews.objects.filter(stationname=name).all())
     # stationdetail =list(stationdetails.objects.all())
-    print('----------')
-    print(stationdetail)
     dataset=[]
         # dump data
     for i in range(0,len(reviewset)):
@@ -141,7 +137,6 @@ def addreviews(request, stationname):
 
         en = reviews(username=username,stationname=stationname,highlights=highlights,rating=rating,description=description)
         en.save()
-        print('helo')
     else:
         pass
-    return render(request, 'addpoint.html')
+    return render(request, 'map.html')
