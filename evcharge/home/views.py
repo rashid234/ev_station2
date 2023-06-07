@@ -101,7 +101,7 @@ def add(request):
         print('helo')
     else:
         pass
-    return render(request, 'addpoint.html')
+    return render(request, 'success.html')
 
 def details(request, name):
     stationdetail =list(stationdetails.objects.filter(name=name).all())
@@ -139,4 +139,4 @@ def addreviews(request, stationname):
         en.save()
     else:
         pass
-    return render(request, 'map.html')
+    return render(request, 'success.html')
