@@ -5,6 +5,11 @@ from django.contrib import messages
 from .models import stationdetails
 from .models import reviews
 from json import dumps
+from django.conf import settings
+from .forms import PaymentForm
+import stripe
+import random
+from decimal import Decimal
 
 # Create your views here.
 
@@ -140,3 +145,40 @@ def addreviews(request, stationname):
     else:
         pass
     return render(request, 'success.html')
+
+    
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+def payment_view(request):
+    if request.method == 'POST':
+        form = PaymentForm(request.POST)
+        print(form.errors)
+        print(type(form.cleaned_data['amount']))
+        if form.is_valid():
+            amount = int(form.cleaned_data['amount'] * 100)  # Convert dollars to cents
+            currency = form.cleaned_data['currency']
+            
+            intent = stripe.PaymentIntent.create(
+                amount=amount,
+                currency=currency,
+            )
+            return render(request, 'confirm_payment.html', {
+                'client_secret': intent.client_secret, 
+                'publishable_key': settings.STRIPE_PUBLISHABLE_KEY
+            })
+    else:
+        pricePerPercentage = 5
+        remainingBatteryPercentage = random.randint(1, 100)
+        price = Decimal(remainingBatteryPercentage * pricePerPercentage)
+        print(remainingBatteryPercentage)
+        # Minimum charge for price is 50
+        if  price < 50:
+            price = 50
+
+        priceData = {
+            'amount': price,  
+            'amount_display': price,
+            'currency': 'usd'  
+        }
+        form = PaymentForm(initial = priceData)
+        return render(request, 'payment_form.html', {'form': form})
