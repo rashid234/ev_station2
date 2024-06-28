@@ -5,6 +5,7 @@
 </head>
 <body>
     <h1>Payment</h1>
+    remainingBatteryPercentage : {{remainingBatteryPercentage}}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

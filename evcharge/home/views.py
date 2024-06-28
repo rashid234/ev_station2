@@ -168,8 +168,8 @@ def payment_view(request):
             })
     else:
         pricePerPercentage = 5
-        remainingBatteryPercentage = random.randint(1, 100)
-        price = Decimal(remainingBatteryPercentage * pricePerPercentage)
+        remainingBatteryPercentage = random.randint(1, 99)
+        price = Decimal((100-remainingBatteryPercentage) * pricePerPercentage)
         print(remainingBatteryPercentage)
         # Minimum charge for price is 50
         if  price < 50:
@@ -181,4 +181,4 @@ def payment_view(request):
             'currency': 'usd'  
         }
         form = PaymentForm(initial = priceData)
-        return render(request, 'payment_form.html', {'form': form})
+        return render(request, 'payment_form.html', {'form': form, 'remainingBatteryPercentage':remainingBatteryPercentage})
